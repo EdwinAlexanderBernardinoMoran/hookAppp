@@ -1,3 +1,5 @@
 - No se recomienda poner un useEffect sin ni una dependencia. (callback, valor de retorno, dependecias)
 - Si le mandamos un arreglo vacio entonces solo se ejecutara una vez
 - Se recomienda crear efectos especializados, que hagan una sola accion.
+
+- El segundo valor de retorno de useEffect sirve para destruir listener por ejemplo a la hora que el componente se destruye esto se le conoce como unmont o cleanup.
