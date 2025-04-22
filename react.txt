@@ -1,0 +1,3 @@
+- No se recomienda poner un useEffect sin ni una dependencia. (callback, valor de retorno, dependecias)
+- Si le mandamos un arreglo vacio entonces solo se ejecutara una vez
+- Se recomienda crear efectos especializados, que hagan una sola accion.

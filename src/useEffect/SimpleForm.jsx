@@ -1,20 +1,32 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export const SimpleForm = () => {
-    const [formState, setForm] = useState({
-        username: 'edwin',
-        email: 'edwin@gmail.com'
+  const [formState, setForm] = useState({
+    username: 'edwin',
+    email: 'edwin@gmail.com'
+  })
+
+  const { username, email } = formState;
+
+  const onInputChange = ({ target }) => {
+    const { name, value } = target;
+    setForm({
+      ...formState,
+      [name]: value
     })
+  }
 
-    const { username, email } = formState;
+  useEffect(() => {
+    console.log('useEffect called');
+  }, []);
 
-    const onInputChange = ({ target }) => {
-        const { name, value } = target;
-        setForm({
-            ...formState,
-            [name]: value
-        })
-    }
+  useEffect(() => {
+    console.log('formState changed');
+  }, [formState])
+  
+  useEffect(() => {
+    console.log('email changed');
+  }, [email])
 
   return (
     <>
