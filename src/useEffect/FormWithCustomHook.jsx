@@ -9,6 +9,8 @@ export const FormWithCustomHook = () => {
     password: ''
   })
 
+  const { username, email, password } = formState;
+
   useEffect(() => {
     // console.log('useEffect called');
   }, []);

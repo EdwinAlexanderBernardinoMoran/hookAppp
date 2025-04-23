@@ -4,3 +4,6 @@
 
 - El segundo valor de retorno de useEffect sirve para destruir listener por ejemplo a la hora que el componente se destruye esto se le conoce como unmont o cleanup.
 - El componente unicamente se destruye solo si se renderiza por medio de una condicion, es decir por ejemplo si el componente tiene la clase 'hidden' entonces nunca se destruira.
+
+- Si un componente tiene mucha logica  talvez sea necesario separa locia en funciones externas.
+- Si es necesario de hacer cambios o redibujos en el state utilizamos Customhooks.
