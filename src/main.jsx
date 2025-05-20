@@ -6,12 +6,14 @@ import './index.css'
 // import { CounterWithCustomHook } from './useState/CounterWithCustomHook'
 // import { SimpleForm } from './useEffect/SimpleForm'
 import { FormWithCustomHook } from './useEffect/FormWithCustomHook'
+import { MultipleCustomHook } from './examples/MultipleCustomHook'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     {/* <Counter /> */}
     {/* <CounterWithCustomHook /> */}
     {/* <SimpleForm /> */}
-    <FormWithCustomHook />
+    {/* <FormWithCustomHook /> */}
+    <MultipleCustomHook />
   </StrictMode>,
 )

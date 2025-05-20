@@ -7,3 +7,8 @@
 
 - Si un componente tiene mucha logica  talvez sea necesario separa locia en funciones externas.
 - Si es necesario de hacer cambios o redibujos en el state utilizamos Customhooks.
+
+Libreria para formulario.
+
+FORMULARIOS
+https://react-hook-form.com/
