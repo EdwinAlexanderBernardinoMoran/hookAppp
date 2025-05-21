@@ -1,61 +1,60 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
-export const useFetch = ( url ) => {
-    const [state, setState] = useState({
-        data: null,
-        isLoading: true,
-        hasError: false,
-        error: null
-    })
+export const useFetch = (url) => {
+  const [state, setState] = useState({
+    data: null,
+    isLoading: true,
+    hasError: false,
+    error: null,
+  });
 
-    // Se ejecuta una vez al cargar el componente
-    useEffect(() => {
-      getFetch()
-    }, [url])
+  // Se ejecuta una vez al cargar el componente
+  useEffect(() => {
+    getFetch();
+  }, [url]);
 
-    const setLoadingState = () => {
+  const setLoadingState = () => {
+    setState({
+      data: null,
+      isLoading: true,
+      hasError: false,
+      error: null,
+    });
+  };
+
+  const getFetch = async () => {
+    setLoadingState();
+    const resp = await fetch(url);
+
+    // sleep(2000)
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
+    if (!resp.ok) {
       setState({
         data: null,
-        isLoading: true,
-        hasError: false,
-        error: null
-      })
-    }
-
-    const getFetch = async () => {
-      setLoadingState();
-      const resp = await fetch(url);
-
-      // sleep(2000)
-
-      await new Promise(resolve => setTimeout(resolve, 2000));
-
-      if (!resp.ok) {
-        setState({
-          data: null,
-          isLoading: false,
-          hasError: true,
-          error: {
-            code: resp.status,
-            message: resp.statusText
-          }
-        })
-        return;
-      }
-      const data = await resp.json();
-      setState({
-        data: data,
         isLoading: false,
-        hasError: false,
-        error: null
-      })
+        hasError: true,
+        error: {
+          code: resp.status,
+          message: resp.statusText,
+        },
+      });
+      return;
     }
-    
+
+    const data = await resp.json();
+    setState({
+      data: data,
+      isLoading: false,
+      hasError: false,
+      error: null,
+    });
+  };
 
   return {
     data: state.data,
     isLoading: state.isLoading,
     hasError: state.hasError,
     error: state.error,
-  }
-}
+  };
+};
