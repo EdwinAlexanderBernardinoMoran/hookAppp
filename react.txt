@@ -12,3 +12,7 @@ Libreria para formulario.
 
 FORMULARIOS
 https://react-hook-form.com/
+
+S9 - INCORPORAR CACHE = Para hacer peticiones HTTP 
+- https://tanstack.com/query/latest
+- https://fernando-herrera.com/course/react-query/
