@@ -8,6 +8,7 @@ import './index.css'
 import { FormWithCustomHook } from './useEffect/FormWithCustomHook'
 import { MultipleCustomHook } from './examples/MultipleCustomHook'
 import { FocusScreen } from './useRef/FocusScreen'
+import { Layout } from './useLayoutEffect/Layout'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -16,6 +17,7 @@ createRoot(document.getElementById('root')).render(
     {/* <SimpleForm /> */}
     {/* <FormWithCustomHook /> */}
     {/* <MultipleCustomHook /> */}
-    <FocusScreen />
+    {/* <FocusScreen /> */}
+    <Layout />
   </StrictMode>,
 )

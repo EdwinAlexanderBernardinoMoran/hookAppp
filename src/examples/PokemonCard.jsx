@@ -1,22 +1,36 @@
-import React from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from "react"
 
 export const PokemonCard = ({ id, name, sprites = []}) => {
-  return (
-    <section style={{ height: 200 }}>
-        <h1 className='text-capitalize'># {id } - { name }</h1>\
+    const h2Ref = useRef()
+    const [boxSize, setBoxSize] = useState({height: 0, width: 0})
 
-        {/* Images */}
-        <div>
-            {
-                sprites.map( sprite => (
-                    <img 
-                        key={ sprite }
-                        src={ sprite }
-                        alt={ name }
-                    />
-                ))
-            }
-        </div>
-    </section>
-  )
+    useLayoutEffect(() => {
+        const { height, width } = h2Ref.current.getBoundingClientRect()
+
+        console.log({ height, width });
+        setBoxSize({ height, width })
+      
+    }, [name])
+    return (
+        <section style={{ height: 200, display: 'flex', flexDirection: 'row' }}>
+            <h2 ref={h2Ref} className='text-capitalize'># {id } - { name }</h2>\
+
+            {/* Images */}
+            <div>
+                {
+                    sprites.map( sprite => (
+                        <img 
+                            key={ sprite }
+                            src={ sprite }
+                            alt={ name }
+                        />
+                    ))
+                }
+            </div>
+            {/* Box */}
+            <pre>
+                {JSON.stringify(boxSize)}
+            </pre>
+        </section>
+    )
 }
